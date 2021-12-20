@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="/node_modules/animate.css/animate.min.css">
+    <link rel="stylesheet" href="/node_modules/font-awesome-animation/css/font-awesome-animation.min.css">
+    <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/node_modules/animate.css/animate.min.css">
+    <link rel="stylesheet" href="/styles/main.css">
+    <title>Blog | Tommaso Zanatta | Finance, Knowledge | Personal Finance | News | Developer</title>
+  </head>
+  <body>
+    <nav class="nav-hgt static-top pt-4 pb-2">
+      <label for="touch"><span>Tommaso Zanatta</span></label>               
+      <input type="checkbox" id="touch"> 
+      <ul class="slide">
+        <li><a href="/html/home.html">Home</a></li> 
+        <li><a href="/html/blog.html">Blog</a></li>
+        <li><a href="/html/projects.html">Progetti</a></li>
+        <li><a href="/html/about.html">Chi Sono | Contatti</a></li>
+      </ul>
+    </nav>
+    <div class="readmode sticky-top">
+        <h1 class="readmodetext">Attiva la modalità lettura! <br> (Così i tuoi occhi non si stancano e mi ringrazierai tra 20 anni 💕) → </h1>
+        <button id="change-theme-btn">📖</button>
+    </div>
+    <div class="post-wrapper">
+        <div class="post">
+            <h1 class="post-title">Pearson Correlation 📊</h1>
+            <img src="/Pictures/pearson.png" class="post-pic">
+            <h4 class="cap"><strong>L'Idea 👓</strong></h4>
+            <p class="post-body">Benvenuto al primo post sui miei progetti in Python! <br> <em><strong>Alla fine della pagina troverai lo snapshot del codice.</strong></em> <br>
+                Partiamo dal titolo e dall'immagine, magari. Alla fine vorrei sapere se hai capito qualcosa, quindi scrivimi che ne pensi. <br>
+                Come molti sanno, mi piace il trading, ma nessuno sa in realtà perchè: i numeri ed i grafici, così belli, perfetti, guidati da qualcosa che non è opinabile, 
+                è semplicemente l'apoteosi della simmetria e della perfezione. Hai presente quando vedi i video di forme che scorrono perfettamente all'interno di un contenitore, facendoti sentire 
+                così appagato/a? Quelli sono i grafici per me. <br>
+                Come derivazione dalla mia passione per la tecnologia ed il trading, esistono poche cose: la statistica, i bot ed analisi quantitative. Ho deciso di mia sponte, quindi, di iniziare 
+                a leggere svariati libri sulla finanza statistica, statistical arbitrage, high-frequency trading... Per imbattermi poi nella storia della "Black Box" di Morgan Stanley.
+            </p>
+            <h4 class="cap">Morgan Stanley's Black Box 📦</h4>
+            <p class="post-body">
+              Alcuni traders, sotto la guida di Nunzio Tartaglia (matematico e statista), crearono, nel 1985, un sistema di trading quantitativo basato sulla compravendita di 
+              paia di azioni. Da qui nasce la Black Box, una specie di scatola per intenderci, in cui erano presenti paia correlati, quindi che avevano un andamento simile, basato su leggi 
+              matematiche, che potevano essere comprati o venduti. Il funzionamento è relativamente intuitivo, in pratica non si tradava più sul titolo in sè, ma si studiava l'andamento del suo 
+              alpha, o per meglio intenderci il suo spread, in relazione con un altro titolo ad esso correlato.
+            </p>
+            <img src="/Pictures/esbaesrt.png" class="post-pic">
+            <p class="post-body">
+              Come si può vedere, la performance di questi due titoli (oltre ad una relazione matematica, per renderla più semplice, ho usato anche una relazione più intrinseca) è 
+              molto simile, ma non esattamente. Possiamo quindi identificare un titolo più "forte" che viene negoziato ad un prezzo più alto rispetto ad un titolo più "debole" che viene 
+              negoziato ad un prezzo, ovviamente, più basso.
+              La regola di base dice che, in ogni caso, quando lo spread aumenta, possiamo essere certi che quest'ultimo tornerà ad assottigliarsi, prima o poi. La parte statistica e matematica 
+              arriva esattamente alla fine di questa frase: "prima o poi". Significa che possiamo essere certi che questo evento si avvererà al 100%, non esiste eventualità, anche finanziariamente 
+              parlando è una cosa che non si è mai vista, che lo spread tra due titoli che condividono performance, settore e risultati, aumenti all'infinito. Ad un certo punto o un titolo va in default, 
+              alquanto remota come possibilità, o lo spread diminuisce. <br>
+              Seguendo questa regola, quindi, nel momento in cui vediamo una distanza significativa tra i titoli, bisogna andare controcorrente e: <br> <br>
+              - Vendere il titolo più forte <br>
+              - Comprare il titolo più debole <br> <br>
+              Nel caso fosse difficile immaginarlo, basta pensare ai titoli come due rette che ad un certo punto si toccheranno, perchè avvenga ciò, ovviamente, la retta superiore deve essere orientata verso 
+              il basso, mentre quella inferiore deve essere orientata verso l'alto. <br> <br>
+              <em>Quando questo succede, abbiamo una diminuzione dello spread.</em> <br> <br>
+              Questa era una spiegazione molto a grandi linee della prima teoria, che ha portato a grandissimi profitti, risultando però poco efficiente in quanto non erano così frequenti le operazioni. Nel caso 
+              in cui qualcuno fosse interessato, potrei portare un post nella sezione "Blog" dove spiego andando più nei tecnicismi.
+            </p>
+            <h4 class="cap">Lo Studio 📚</h4>
+            <p class="post-body">
+              Ora, spiegherò come ho fatto, con le mie limitate conoscenze in Data Science e Python.
+              La prima parte è atta alla creazione, apertura, adattamento e pulizia del dataset. Per trovare dati consistenti, semplici da manipolare e soprattutto 
+              completi, ho utilizzato il modulo <em>yfinance</em>, ovvero un modulo che sfrutta un API di Yahoo Finance per trovare dati. Per creare il dataset sul quale poi andrò 
+              a lavorare, ho creato un ciclo che prendesse come colonna iterabile la prima, ovvero quella contenente le stringhe dei ticker ("AAPL","GOOGL"...), creasse 
+              un oggetto yf.Ticker attraverso il ticker, caricasse all'interno di un dataframe la performance del ticker dell'ultimo anno ad intervalli di un giorno, 
+              poi, se il suddetto dataframe era più lungo di 15 righe, veniva aggiunto al dataframe comprensivo di tutte le performance, dopo aver eliminato le colonne non 
+              necessarie ed aver controllato che concretamente ci fossero dati per il ticker fornito. <br>
+              Poi, da questo dataframe ho ricavato il prezzo effettivo, ovvero quello di chiusura, per ogni simbolo. <br><em> Molti Data Analysts usano il prezzo mediato, ovvero 
+              la media aritmetica tra il prezzo più alto, il prezzo più basso, il prezzo di apertura ed il prezzo di chiusura, in quanto è meno influenzato 
+              da improvvisi picchi o cali nel prezzo.</em> <br>
+              Dopo aver creato un dataframe contenente 1,513,512 righe di informazioni, per renderlo un po' meno confusionario ho creato un grafico, che alla fine lo ha 
+              fatto semplicemente diventare un casino.
+              Per mantenere il codice un po' ibrido, nel senso che nel caso in cui avessi bisogno di avere altre operazioni, ho deciso di trovare la media e la conseguente 
+              standard deviation. <br> <br>
+              Ho quindi, per ogni dataframe all'interno del dataframe comprensivo delle performance, calcolato attraverso una funzione di NumPy la correlazione tra tutti i titoli. 
+              Quest'operazione, come è possibile immaginare, è molto complessa e richiederebbe molta memoria e potenza di calcolo, ma sorprendentemente, ci ha messo molto meno del previsto, 
+              considerando che bisognava trovare 36,072,036 correlazioni. <br>
+              La parte che mi ha rubato più tempo, comunque, è stata quella di trovare le correlazioni superiori allo 0.995, escludere quelle uguali ad 1, presenti in quanto 
+              molti titoli che vengono negoziati appartengono a diverse classi dello stesso asset, basti pensare a alle Alphabet Class A e le Alphabet Class B (entrambe vengono utilizzate per 
+              negoziare il titolo di Google). Non sto qui a spiegare gli infinitesimali passaggi di query tra Pandas e Numpy, dico semplicemente che tra tutto, è stato il passaggio che mi ha 
+              fatto dubitare della mia riuscita in questo progetto.
+              Avendo poi costruito il dataframe con la correlazione, con rispettivamente come colonne: <br>
+              - Primo ticker <br>
+              - Secondo ticker <br>
+              - Correlazione <br> <br>
+              Potevo creare un ciclo che iterasse ogni riga, restituendo questa sequenza di output: <br>
+              - Market Performance: ticker1, ticker2 <br>
+              - Pearson Correlation <br>
+              - Grafico <br>
+              - Risultato previsto (non attendibile, semplicemente l'utilizzo della formula di Poisson per indicare un trend) <br>
+              - Moda <br>
+              - Rolling median (Simple Moving Average 20) <br>
+              - Mediana <br>
+              - Standard Deviation <br> 
+              - Limiti di distanza per lo spread <br>
+              - Grafico dello spread tra i due titoli + SMA20 <br> <br>
+
+              Così per tutte le righe.
+            </p>
+            <h4 class="cap">Code Snapshot 📸</h4>
+            <img src="/Pictures/pearson 2.png" class="snapshot col-12">
+            <img src="/Pictures/pearson 3.png" class="snapshot col-12">
+            <img src="/Pictures/pearson 4.png" class="snapshot col-12">
+            <img src="/Pictures/pearson 5.png" class="snapshot col-12">
+            <img src="/Pictures/pearson 6.png" class="snapshot col-12">
+            <img src="/Pictures/Screenshot 2021-12-20 at 15.22.18.png" class="snapshot col-12">
+            <img src="/Pictures/Screenshot 2021-12-20 at 15.22.28.png" class="snapshot col-12">
+            <h4 class="cap">Conclusioni</h4>
+            <p class="post-body">
+              Questo progetto è stato uno "schizzo" che ho avuto, volevo dimostrare a me stesso che con calma, concentrazione ed una buona 
+              dose di curiosità, sarei riuscito a concluderlo, oltre a capire qualcosa in più sul mercato azionario ed entrambe la matematica 
+              e la statistica che possono essere applicate ad esso (ovviamente concetti molto basilari, al momento). <br>
+              A volte qualcosa mi spinge a fare queste cose, a capire, a sapere che con le dita, una tastiera e la mia testa, posso fare quello che 
+              voglio, il che mi spinge ad andare ancora più avanti, a capire di più ed a migliorarmi sempre di più. 
+              Provo un sincero dispiacere a sentire molte persone della mia età dire "dovresti impegnare il tuo tempo facendo altro" oppure "stai perdendo tempo" 
+              quando io sono più che convinto che tutto quel che sto facendo in questo periodo, tutto quel che sto imparando mi servirà in futuro. <br> <br>
+              <em>Tornando seri</em> spero che tu, che hai appena letto questo post, abbia delle domande, che potremmo discutere insieme, puoi scrivermi proprio dove +
+              vuoi, Instagram, LinkedIn, mandami un tweet, un segnale di fumo, un piccione viaggiatore, insomma mi piacerebbe proprio! <br> <br>
+              Questo è tutto, stay tuned per i prossimi post!
+            </p>
+        </div>
+    </div>
+    <footer class="footer fixed-bottom fill_footer pt-1 foot">
+            <a href="https://www.instagram.com/pinkzanny/" class="mx-3" style="text-decoration: none;">
+              <i class="bi bi-instagram" style="color: black;"></i>
+            </a>
+            <a href="https://twitter.com/tommasozanatta_" class="mx-3" style="text-decoration: none;">
+              <i class="bi bi-twitter" style="color: black;"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/tommasozanatta/" class="mx-3" style="text-decoration: none;">
+              <i class="bi bi-linkedin" style="color: black;"></i>
+            </a>
+            <p class="sub_footer mt-1">Tommaso Zanatta | 2021</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="/change-theme.js"></script>
+  </body>
+</html>
