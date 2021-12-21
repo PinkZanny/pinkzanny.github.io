@@ -1,11 +1,12 @@
 {
   "name": "blog",
   "version": "1.0.0",
-  "homepage": "/index.html",
+  "homepage": "https://pinkzanny.github.io",
   "description": "Personal Blog, posts on finance, personal portfolio, work",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d master -d build"
   },
   "author": "Tommaso Zanatta",
   "license": "ISC",
@@ -14,6 +15,7 @@
     "animate.css": "^4.1.1",
     "bootstrap": "^5.1.2",
     "bootstrap-icons": "^1.5.0",
-    "font-awesome-animation": "^1.1.1"
+    "font-awesome-animation": "^1.1.1",
+    "gh-pages": "^3.2.3"
   }
 }
