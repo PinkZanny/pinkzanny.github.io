@@ -1,7 +1,7 @@
 {
   "name": "blog",
   "version": "1.0.0",
-  "homepage": ".",
+  "homepage": "index.html",
   "description": "Personal Blog, posts on finance, personal portfolio, work",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,7 @@
   },
   "author": "Tommaso Zanatta",
   "license": "ISC",
-  "devDependencies": {
+  "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",
     "animate.css": "^4.1.1",
     "bootstrap": "^5.1.2",
