@@ -1,7 +1,7 @@
 {
   "name": "blog",
   "version": "1.0.0",
-  "homepage": "index.html",
+  "homepage": ".",
   "description": "Personal Blog, posts on finance, personal portfolio, work",
   "main": "index.js",
   "scripts": {
