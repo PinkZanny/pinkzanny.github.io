@@ -1,0 +1,7 @@
+User-agent: *
+allow: /
+disallow: /node_modules/
+disallow: /.git/
+disallow: /.gitignore
+disallow: /.nojekyll
+disallow: /package.json
