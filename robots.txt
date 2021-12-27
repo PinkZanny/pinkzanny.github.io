@@ -1,5 +1,7 @@
+Sitemap: https://pinkzanny.github.io/sitemap.xml
 User-agent: *
 allow: /
+disallow: /Pictures/
 disallow: /node_modules/
 disallow: /.git/
 disallow: /.gitignore
