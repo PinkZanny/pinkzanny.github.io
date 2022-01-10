@@ -445,6 +445,13 @@ section {
     filter: drop-shadow(8px 8px 8px 8px rgb(204, 204, 204));
 }
 
+.email2 {
+    display: block;
+    width: 300px;
+    margin-bottom: 30px;
+    filter: drop-shadow(8px 8px 8px 8px rgb(204, 204, 204));
+}
+
 .textarea {
     display: block;
     width: 300px;
