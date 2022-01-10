@@ -15,7 +15,7 @@ body {
 .intro h1 {
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 50%; 
     width: auto;
     color: white;
     transform: translate(-50%, -50%);

@@ -472,7 +472,7 @@ section {
 
 .btnout {
     background-color: white;
-    border: 1px solid black;
+    border: 1px solid black; 
     border-radius: 25px;
     width: 70px;
 }
