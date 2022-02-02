@@ -476,3 +476,12 @@ section {
     border-radius: 25px;
     width: 70px;
 }
+
+.post-pic-book {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 250px;
+    width: 380px;
+    object-fit:scale-down;
+}
