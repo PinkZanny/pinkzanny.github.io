@@ -4,7 +4,12 @@ abstract class DashboardState extends Equatable {
   const DashboardState();
 }
 
-class DashboardInitial extends DashboardState {
+class DashboardLoading extends DashboardState {
   @override
   List<Object> get props => [];
+}
+
+class DashboardLoaded extends DashboardState {
+  @override
+  List<Object?> get props => [];
 }
