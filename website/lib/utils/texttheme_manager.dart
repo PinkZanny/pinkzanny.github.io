@@ -1,25 +1,39 @@
 import 'package:flutter/material.dart';
+import 'package:website/utils/constants.dart';
+import 'package:website/utils/screen_size.dart';
 
 class TTheme {
-  static TextStyle? displayLarge;
-  static TextStyle? displayMedium;
-  static TextStyle? displaySmall;
-  static TextStyle? headlineLarge;
-  static TextStyle? headlineMedium;
-  static TextStyle? headlineSmall;
-  static TextStyle? bodyLarge;
-  static TextStyle? bodyMedium;
-  static TextStyle? bodySmall;
+  static TextStyle bigAssTextBg = TextStyle(
+    fontSize: ScreenSize.isWebMobile
+        ? Constants.bigAssTextMobile
+        : Constants.bigAssText,
+    fontFamily: 'Helvetica Neue Bold',
+    color: Constants.secondaryColor,
+    decoration: TextDecoration.none,
+  );
 
-  static void init(final BuildContext context) {
-    displayLarge = Theme.of(context).textTheme.displayLarge;
-    displayMedium = Theme.of(context).textTheme.displayMedium;
-    displaySmall = Theme.of(context).textTheme.displaySmall;
-    headlineLarge = Theme.of(context).textTheme.headlineLarge;
-    headlineMedium = Theme.of(context).textTheme.headlineMedium;
-    headlineSmall = Theme.of(context).textTheme.headlineSmall;
-    bodyLarge = Theme.of(context).textTheme.bodyLarge;
-    bodyMedium = Theme.of(context).textTheme.bodyMedium;
-    bodySmall = Theme.of(context).textTheme.bodySmall;
-  }
+  static TextStyle smallText = TextStyle(
+    fontSize: ScreenSize.isWebMobile
+        ? Constants.smallTextMobile
+        : Constants.smallText,
+    fontFamily: 'Satoshi Regular',
+    color: Colors.white,
+    decoration: TextDecoration.none,
+  );
+
+  static TextStyle directoryText = TextStyle(
+    fontSize:
+        ScreenSize.isWebMobile ? Constants.bodyTextMobile : Constants.bodyText,
+    fontFamily: 'Satoshi Regular',
+    color: Colors.white,
+    decoration: TextDecoration.none,
+  );
+
+  static TextStyle directoryTextSelected = TextStyle(
+    fontSize:
+        ScreenSize.isWebMobile ? Constants.bodyTextMobile : Constants.bodyText,
+    fontFamily: 'Satoshi Regular',
+    color: Colors.white,
+    decoration: TextDecoration.underline,
+  );
 }
