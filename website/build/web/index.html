@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
+
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
+
+    For more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+
+    This is a placeholder for base href that will be replaced by the value of
+    the `--base-href` argument provided to `flutter build`.
+  -->
+  <base href="/">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="A new Flutter project.">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="website">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <meta name="google-signin-client_id" content="643927739423-719e9m07f0040h14segaj79vakeudtrc.apps.googleusercontent.com">
+
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico"/>
+
+  <title>TZ.</title>
+  <link rel="manifest" href="manifest.json">
+
+  <script>
+    // The value below is injected by flutter build, do not touch.
+    const serviceWorkerVersion = "3813696260";
+  </script>
+  <!-- This script adds the flutter initialization JS code -->
+  <script src="flutter.js" defer></script>
+  <style>
+    body {
+      margin: 0;
+      background-color: #141414; /* Matches Color.fromARGB(255, 20, 20, 20) */
+      overflow: hidden; /* Prevent scrollbars during animation */
+    }
+  
+    /* The animated container */
+    .loading {
+      position: absolute;
+      top: 50%;
+      /* Height is used to define our circle’s size.
+         When in circle state, width === height. */
+      height: 1vw;
+      background-color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* The animation will change left, width and border-radius */
+      animation: morph 1s infinite alternate ease-in-out;
+      /* Vertical centering */
+      transform: translateY(-50%);
+    }
+  
+    /* The animation keyframes:
+       - At 0%: small circle at the left (40vw from the left edge).
+       - At 50%: expanded rectangle (with a low border-radius) positioned at 40vw.
+       - At 100%: small circle on the right (calculated so that 40vw is left as margin on the right). */
+    @keyframes morph {
+      0% {
+        left: 45vw;
+        width: 1vw;           /* Circle: width equals height */
+        border-radius: 50%;   /* Perfect circle */
+      }
+      25% {
+        left: 45vw;         /* Expands to a rectangle */
+        border-radius: 100px;  /* Rounded corners for the rectangle */
+      }
+      50% {
+        /* Final circle’s left offset = initial left + expanded width - final circle width */
+        left: calc(40vw + 20vw - 5vw); /* equals 55vw */
+        width: 1vw;
+        border-radius: 50%;
+      }
+      75% {
+        left: 45vw;         /* Expands to a rectangle */
+        border-radius: 100px;  /* Rounded corners for the rectangle */
+      }
+      100% {
+        /* Final circle’s left offset = initial left + expanded width - final circle width */
+        left: calc(40vw + 20vw - 5vw); /* equals 55vw */
+        width: 1vw;
+        border-radius: 50%;
+      }
+    }
+  </style>
+</head>
+  <body>
+
+    <!-- First time loading -->
+    <div class="loading">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Ensure first time loading progress is gone after app loads -->
+    <script>
+        window.addEventListener("flutter-first-frame", function() {
+            var element = document.getElementsByClassName("loading");
+            element[0].parentNode.removeChild(element[0]);
+        });
+    </script>
+
+  <script src="https://accounts.google.com/gsi/client" async defer></script>  
+
+  <script defer src="main.dart.js" type="application/javascript"></script>
+
+  </body>
+</html>
