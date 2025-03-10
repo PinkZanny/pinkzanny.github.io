@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
+import 'package:website/presentation/cubits/home_cubit/home_cubit.dart';
+import 'package:website/presentation/cubits/home_cubit/home_state.dart';
 import 'package:website/utils/constants.dart';
 import 'package:website/utils/routes.dart';
 import 'package:website/utils/screen_size.dart';
@@ -13,26 +16,52 @@ class TopBarWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final location = GoRouter.of(context).state?.uri;
 
-    return Padding(
-      padding: const EdgeInsets.only(
-          left: Constants.padding,
-          right: Constants.padding,
-          top: Constants.padding),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          ScreenSize.isWebMobile
-              ? const MobileNavigation()
-              : WebNavigation(
-                  location: location,
-                ),
-          SvgPicture.asset('svg/logo.svg',
-              height: ScreenSize.isWebMobile
-                  ? Constants.logoSizeMobile
-                  : Constants.logoSize),
-        ],
-      ),
+    return BlocBuilder<HomeCubit, HomeState>(
+      builder: (context, state) {
+        return Padding(
+          padding: const EdgeInsets.only(
+              left: Constants.padding,
+              right: Constants.padding,
+              top: Constants.padding),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              ScreenSize.isWebMobile
+                  ? const MobileNavigation()
+                  : WebNavigation(
+                      location: location,
+                    ),
+              state is AuthenticatedUser
+                  ? Row(
+                      children: [
+                        Text(
+                          "Signed in.",
+                          style: TTheme.directoryText,
+                        ),
+                        const SizedBox(width: 10),
+                        InkWell(
+                            mouseCursor: SystemMouseCursors.none,
+                            onTap: () {
+                              context.read<HomeCubit>().signOut();
+                            },
+                            child: Text("Sign out",
+                                style: TTheme.directoryTextSelected)),
+                        const SizedBox(width: Constants.padding),
+                        SvgPicture.asset('svg/logo.svg',
+                            height: ScreenSize.isWebMobile
+                                ? Constants.logoSizeMobile
+                                : Constants.logoSize),
+                      ],
+                    )
+                  : SvgPicture.asset('svg/logo.svg',
+                      height: ScreenSize.isWebMobile
+                          ? Constants.logoSizeMobile
+                          : Constants.logoSize),
+            ],
+          ),
+        );
+      },
     );
   }
 }
@@ -53,7 +82,11 @@ class MobileNavigation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Center(
+      child: NavigationDirectory(
+        location: GoRouter.of(context).state?.uri,
+      ),
+    );
   }
 }
 

@@ -9,21 +9,24 @@
             "name": "website",
             "cwd": "website",
             "request": "launch",
-            "type": "dart"
+            "type": "dart",
+            "args": ["-d", "chrome", "--web-port", "8080"]
         },
         {
             "name": "website (profile mode)",
             "cwd": "website",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "profile"
+            "flutterMode": "profile",
+            "args": ["-d", "chrome", "--web-port", "8080"]
         },
         {
             "name": "website (release mode)",
             "cwd": "website",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "release"
+            "flutterMode": "release",
+            "args": ["-d", "chrome", "--web-port", "8080"]
         }
     ]
 }

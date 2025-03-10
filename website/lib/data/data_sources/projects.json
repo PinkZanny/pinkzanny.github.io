@@ -1,0 +1,126 @@
+{
+    "privacyStatement": "This file is confidential and contains sensitive, proprietary information owned solely by Tommaso Zanatta. By clicking “Access File,” you acknowledge that you are authorized to view it and agree not to share, reproduce, or distribute any part of its contents without our explicit written consent. Unauthorized sharing may result in legal action.",
+    "projects": [
+      {
+        "title": "Quantitatively Based Dynamic Asset Pricing",
+        "description": "While developing the \"Dynamic Multi-Model Target Identification\" and \"Quantitative Portfolio Optimization\" projects, I realized that I could add a starting point for both, exploring quantitative valuation models for assets.",
+        "objective": "The objective of this project is to explore and develop quantitative valuation models for assets using historical OHLCV data. Currently in development, I aim to implement a systematic and purely quantitative approach to asset selection and valuation, leveraging the Quantitative Portfolio Optimization and Dynamic Multi-Model Target Identification projects, along with additional statistical insights between assets and sectors, such as cointegration and dynamic distribution analysis to enhance the model's robustness and capacity to capture market inefficiencies.",
+        "resourceURL": "",
+        "type": "Ongoing",
+        "conclusion": ""
+      },
+      {
+        "title": "Quantitative Portfolio Optimization",
+        "description": "Following \"Modern Portfolio Theory\" (Francis, Kim; Wiley Finance) and \"Modern Portfolio Theory and Investment Analysis\" (Elton, Gruber, Brown, Goetzmann; Wiley Finance), I wanted to integrate quantitative selection and dynamic asset allocation.",
+        "objective": "The objective of this project is to integrate quantitative selection techniques with dynamic asset allocation to stabilize returns and reduce risk. The main techniques I am using to develop this project are based on the books mentioned in the project's description, while implementing risk neutrality and the efficient frontier to optimize the portfolio's performance. The project aims to provide a comprehensive, real time, and purely automated dynamic portfolio selection and allocation, utopistically aiming to stay in the efficient frontier for all t in the investment horizon.",
+        "resourceURL": "",
+        "type": "Ongoing",
+        "conclusion": ""
+      },
+      {
+        "title": "Dynamic Multi-Model Target Identification",
+        "description": "Based on an idea I had while working on the \"Modeling Spread through OU Processes\" project and exploring Jump Diffusion and Monte Carlo Markov Chain Simulations, this project aims to identify targets for a stock using multiple models.",
+        "objective": "The objective of this project is to identify stock targets by aggregating insights from several quantitative models, including MCMC simulations, HMM (Hidden Markov Models, three-state approach, grid search for parameter optimization and optimality between states), and Jump Diffusion models. By studying the distributions and synthetically generating a distribution of possible outcomes, the project aims to leverage probability theory and statistical analysis to provide a rough estimate of the stock's future price paths.",
+        "resourceURL": "",
+        "type": "Ongoing",
+        "conclusion": ""
+      },
+      {
+        "title": "Modeling FX Markets",
+        "description": "For the exam of Stochastic Finance in my MSc in Computational Finance, my team and I developed the Garman-Kohlagen model for FX Markets in Python, drawing from Arbitrage Theory in Continuous Time and other foundational texts. We start by treating the exchange rate as a geometric Brownian motion, then we adapt the Black-Scholes framework into the Garman-Kohlhagen model. This lets us capture the nuances of FX options, where interest rate differentials and the unique treatment of foreign currencies (as per continuous dividends) play a key role. We furthermore explored the Siegel paradox, questioning how risk neutrality plays out differently for domestic versus foreign investors.",
+        "objective": "The primary objective is to develop a robust, arbitrage-free pricing model for FX derivatives that accurately reflects market realities. By systematically examining the impact of factors such as time to maturity, volatility, and the differential between domestic and foreign risk-free interest rates, the study seeks to enhance the theoretical understanding and practical valuation of FX options. The inclusion of both domestic and foreign equity markets into the framework allows for a more comprehensive assessment of market dynamics, thus bridging the gap between academic theory and practical financial applications. The model's implementation in Python, utilizing empirical data from the EUR/USD currency pair, serves to validate its effectiveness in real-world scenarios.",
+        "resourceURL": "https://drive.google.com/drive/folders/1YE5ru5EjpwC9_ltRU21gtu84pQa4MCuq?usp=sharing",
+        "type": "Download",
+        "conclusion": "The findings confirm that the augmented Garman-Kohlhagen model provides a theoretically sound and practically robust approach to pricing FX derivatives. The analysis demonstrates that longer maturities and increased volatility contribute to higher option premiums, while the risk-free rate differential plays a critical role in shaping the pricing dynamics of call and put options. Despite challenges such as the Siegel paradox—which underscores the limitations of simultaneously assuming domestic and foreign risk neutrality—the overall framework offers significant insights into the interplay between equity and FX markets. By integrating empirical data and theoretical models, the study provides a comprehensive foundation for understanding and valuing FX options, thereby enhancing the risk management and investment strategies of market participants."
+      },
+      {
+        "title": "Modeling Spread through OU Processes",
+        "description": "Inspired by an early idea, I attempted to model the spread of a stock through an Ornstein-Uhlenbeck process. This project is currently on hold but showed promising initial development.",
+        "objective": "The objective of this project is to capture stock spread dynamics with an Ornstein-Uhlenbeck process, given the mean-reverting nature of spreads. By simulating the spread process and analyzing its behavior under different conditions, the study aims to provide insights into pair trading strategies and risk management techniques.\nIt would be interesting to explore the effectiveness and impact of magnitude and speed of mean reversion on spread dynamics, as well as the implication of a systematic strategy based on the approximation of the equation parameters.",
+        "resourceURL": "",
+        "type": "Ongoing",
+        "conclusion": ""
+      },
+      {
+        "title": "Insurance Claims Likelihood Prediction",
+        "description": "For the Machine Learning for Finance exam of my MSc in Computational Finance, my colleague and I developed an Insurance Claims Likelihood Prediction Model in Python.",
+        "objective": "The objective of the project was to explore machine learning techniques for predicting insurance claims likelihood, focusing on data preprocessing, feature selection, and model evaluation. The biggest challenge was to balance the class distribution and avoid overfitting, given a highly imbalanced dataset (94% no-claim, 6% claim), we were forced to explore different techniques to address this issue. We used the SMOTE (Synthetic Minority Over-sampling Technique) algorithm to oversample the minority class and Random Forest, AdaBoost and XGBoost Classifier algorithms.",
+        "resourceURL": "https://drive.google.com/drive/folders/1DTxL_0aB6Gf4oL_bgTS-q-rfqSNWjme7?usp=sharing",
+        "type": "Download",
+        "conclusion": "By implementing clustering on our findings, we could conclude that the features engineered by us were in definitive agreement (79.46%) with the actual claims made. The model's performance was satisfactory, with a specificity score of 76% for the XGBoost Classifier, while the Random Forest Classifier outperformed the other approaches in terms of AUC (Area Under the Curve). The project demonstrated the importance of data preprocessing, feature selection, and model evaluation in building an effective insurance claims likelihood prediction model."
+      },
+      {
+        "title": "Black Scholes Model",
+        "description": "For the Introduction to Computational Mathematics exam in my MSc in Computational Finance, my team and I developed a Black Scholes Model in Python.",
+        "objective": "The objective of this project is to implement and analyze the Black Scholes Model within a computational framework, evaluating and explaining the principles in which the model is based on.",
+        "resourceURL": "https://drive.google.com/drive/folders/1DTxL_0aB6Gf4oL_bgTS-q-rfqSNWjme7?usp=sharing",
+        "type": "Download",
+        "conclusion": "The analytical derivation, and Python approximation of the Black Scholes Model, provided a comprehensive understanding of option pricing and the underlying assumptions. The model's sensitivity to changes in volatility, time to maturity, and interest rates was evident, highlighting the importance of these factors in option pricing. The project demonstrated the practical application of the Black Scholes Model in financial markets and the significance of risk-neutral pricing in derivative valuation. We explored the Finite Differences methods for solving the Black Scholes PDE (Forward Euler, Backward Euler, Crank-Nicolson) and the Monte Carlo simulation for option pricing, providing a comprehensive overview of the model's implementation and limitations."
+      },
+      {
+        "title": "Chatbots and AI: Streamlining Processes and Reducing Costs",
+        "description": "This dissertation project for my BSc in Digital Management (H-FARM College, class of 2023) focused on leveraging chatbots and AI to streamline business processes.",
+        "objective": "The objective of this research is to analyze the effectiveness of AI chatbots in optimizing business processes, reducing operational costs, and enhancing customer experiences. Through a case study at eLogy, this thesis aims to demonstrate how AI-driven automation can improve efficiency in logistics and supply chain management while addressing ethical and privacy considerations.",
+        "resourceURL": "https://drive.google.com/file/d/18LVkkQkHNsVEzwiDVA5FSwhZINPeDmP6/view?usp=sharing",
+        "type": "Download",
+        "conclusion": "The findings confirm that AI chatbots play a crucial role in business automation by improving response times, reducing costs, and increasing operational efficiency. The case study at eLogy highlights the successful integration of a chatbot in warehouse operations and customer service, leading to improved workflow and customer satisfaction. While chatbots offer significant advantages, ongoing development, ethical considerations, and user adaptation remain key areas for future research and refinement."     
+      },
+      {
+        "title": "Genesis",
+        "description": "Genesis is a project I was developing a few years ago, born from the idea of aggregating fundamental and technical analysis into a single script.",
+        "objective": "The objective of this project was to create a unified tool aggregating both fundamental and technical analysis. From the intuition of using Quiver Quantitative (scraping data from the website about Reddit sentiment) and the idea of creating an ensemble indicator with associated past outcomes, weighted by the magnitude of the signal, I started developing Genesis.",
+        "resourceURL": "",
+        "type": "Ongoing",
+        "conclusion": "This project is currently on hold, and due to technical advancements in the field, I am considering discontinuing it. However, I am open to discussing potential collaborations or partnerships to bring it to life."
+      },
+      {
+        "title": "Capital Asset Pricing Model",
+        "description": "For our Regression and Time Series Analysis exam in the MSc in Computational Finance, our team developed a Capital Asset Pricing Model (CAPM) in R, focusing on the European real estate market. Using 10 years of data from Refinitiv Workspace, we analyzed the relationship between equity returns of 17 real estate companies and the Euro Stoxx 600 Real Estate Index. Our study included statistical tests, linear regression modeling, and a multifactor extension incorporating additional risk factors.",
+        "objective": "This project aimed to implement the CAPM framework, quantify systematic risk through beta coefficients, and assess market dependencies of real estate stocks using regression and time series analysis. We evaluated model validity through diagnostic tests and extended the analysis with a multifactor model to improve explanatory power.",
+        "resourceURL": "https://drive.google.com/drive/folders/1RbahgfiVTWmfH0OG5dkK-av7Cz28-9D-?usp=sharing",
+        "type": "Download",
+        "conclusion": "Our findings confirm that CAPM effectively captures the risk-return relationship for most real estate stocks, with statistically significant betas indicating strong market dependence. The presence of heteroskedasticity and structural breaks in some cases suggests that real estate stocks may not always align perfectly with CAPM assumptions. The multifactor model provided a marginally better fit but introduced additional complexity without significantly improving predictive power. From this project, we can safely assume that CAPM remains a useful tool for assessing systematic risk in real estate investments, though additional factors may be needed for a more comprehensive risk assessment."
+      },
+      {
+        "title": "Banca Mediolanum Home Banking",
+        "description": "I contributed to the development team at Deloitte for 6 months, where we began refactoring key areas of the Banca Mediolanum Home Banking platform.",
+        "objective": "The objective of this project is to refactor and optimize the Banca Mediolanum Home Banking platform. My role was to follow UI/UX guidelines and implement old features with new technologies, posing a challenge due to the platform's complexity and the need for seamless integration. The project required a deep understanding of the existing codebase and the ability to work within a large team, partnering with both Mediolanum's and Deloitte's teams.",
+        "resourceURL": "",
+        "type": "Work Product",
+        "conclusion": ""
+      },
+      {
+        "title": "Cheapfit",
+        "description": "A mobile application developed in Flutter with a Typescript backend and SQL database. It was designed for a startup to gamify the fitness experience through challenges and a progress dashboard, integrating with HealthKit and Google Fit.",
+        "objective": "The objective of this project is to gamify fitness tracking by offering challenges and a comprehensive progress dashboard. The seamless integration with HealthKit and Google Fit presented challenges for the backend, requiring data preprocessing and synchronization along with a user-friendly frontend.",
+        "resourceURL": "",
+        "type": "Work Product",
+        "conclusion": ""
+      },
+      {
+        "title": "Hug App",
+        "description": "A mobile application built in Flutter with a Typescript backend and SQL database, integrating seamlessly with wearable devices to access emergency calls.",
+        "objective": "The objective of this project is to provide a reliable emergency-call solution via integration with wearable devices. The integration of wearable devices required me to code in native language for both iOS and Android, as the Flutter plugins were not yet available.",
+        "resourceURL": "",
+        "type": "Work Product",
+        "conclusion": ""
+      },
+      {
+        "title": "Driver.Centric",
+        "description": "The first complete mobile application I developed from scratch in Flutter. It served as the frontend for a platform that allowed car dealership customers to access their car data and book services.",
+        "objective": "The objective of this project is to deliver an intuitive frontend for a car dealership platform that facilitates service booking and data access. It featured a complete registration, login, password recovery, profile management, appointment booking, and car data visualization system.",
+        "resourceURL": "",
+        "type": "Work Product",
+        "conclusion": ""
+      },
+      {
+        "title": "Eni Emissions App",
+        "description": "A mobile application developed in Flutter (v1) for Eni, the Italian oil company, designed to showcase their efforts in reducing emissions. It required some refactoring post-development.",
+        "objective": "The objective of this project was to effectively communicate Eni's emission reduction efforts through a dedicated mobile app. My main role was to refactor the codebase previously implemented. The challenge was, given the fact that the Flutter version was really and deeply outdated, to learn the mechanics of Dart and Flutter where the language and the framework had evolved significantly.",
+        "resourceURL": "",
+        "type": "Work Product",
+        "conclusion": ""
+      }
+    ]
+  }
+  
