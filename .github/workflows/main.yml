@@ -18,6 +18,7 @@ jobs:
       - name: Prepare deploy folder
         run: |
           mkdir -p deploy
+          flutter build web
           cp -r website/build/web/. deploy/
 
       - name: Upload Pages Artifact
