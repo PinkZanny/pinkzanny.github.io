@@ -47,7 +47,6 @@ class WebBody extends StatelessWidget {
             }
             if (state is ProjectList) {
               return ListView(
-                physics: const SmoothScrollPhysics(),
                 padding: const EdgeInsets.all(Constants.smallPadding),
                 children: [
                   Text(
@@ -230,7 +229,6 @@ class MobileBody extends StatelessWidget {
                     const SizedBox(height: Constants.smallPadding),
                     Expanded(
                       child: ListView(
-                        physics: const SmoothScrollPhysics(),
                         padding: const EdgeInsets.symmetric(
                             horizontal: Constants.smallPadding),
                         children: [
@@ -266,7 +264,6 @@ class MobileBody extends StatelessWidget {
                 color: Colors.transparent,
                 borderOnForeground: false,
                 child: SingleChildScrollView(
-                  physics: const SmoothScrollPhysics(),
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
                         horizontal: Constants.smallPadding),

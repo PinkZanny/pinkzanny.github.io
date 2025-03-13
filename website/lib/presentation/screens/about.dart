@@ -125,7 +125,6 @@ class MobileBody extends StatelessWidget {
                         ? ScreenSize.height! * 0.5
                         : 500),
                 child: SingleChildScrollView(
-                  physics: const SmoothScrollPhysics(),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
