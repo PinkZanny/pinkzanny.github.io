@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 import 'package:website/utils/constants.dart';
 import 'package:website/utils/screen_size.dart';
-import 'package:website/utils/scroll_physics_ext.dart';
 import 'package:website/utils/session_manager.dart';
 import 'package:website/utils/texttheme_manager.dart';
 import 'package:website/utils/toast.dart';
