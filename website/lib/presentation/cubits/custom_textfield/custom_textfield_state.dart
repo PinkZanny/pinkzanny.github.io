@@ -10,6 +10,7 @@ class CustomTextfieldInitial extends CustomTextfieldState {
   CustomTextfieldInitial({this.isVisible = false});
 }
 
+// ignore: must_be_immutable
 final class CustomTextfieldError extends CustomTextfieldState {
   bool isVisible = false;
   final String message;

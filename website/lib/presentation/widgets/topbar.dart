@@ -18,47 +18,52 @@ class TopBarWidget extends StatelessWidget {
 
     return BlocBuilder<HomeCubit, HomeState>(
       builder: (context, state) {
-        return Padding(
-          padding: const EdgeInsets.only(
-              left: Constants.padding,
-              right: Constants.padding,
-              top: Constants.padding),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              ScreenSize.isWebMobile
-                  ? const MobileNavigation()
-                  : WebNavigation(
-                      location: location,
-                    ),
-              state is AuthenticatedUser
-                  ? Row(
-                      children: [
-                        Text(
-                          "Signed in.",
-                          style: TTheme.directoryText,
-                        ),
-                        const SizedBox(width: 10),
-                        InkWell(
-                            mouseCursor: SystemMouseCursors.none,
-                            onTap: () {
-                              context.read<HomeCubit>().signOut();
-                            },
-                            child: Text("Sign out",
-                                style: TTheme.directoryTextSelected)),
-                        const SizedBox(width: Constants.padding),
-                        SvgPicture.asset('svg/logo.svg',
-                            height: ScreenSize.isWebMobile
-                                ? Constants.logoSizeMobile
-                                : Constants.logoSize),
-                      ],
-                    )
-                  : SvgPicture.asset('svg/logo.svg',
-                      height: ScreenSize.isWebMobile
-                          ? Constants.logoSizeMobile
-                          : Constants.logoSize),
-            ],
+        return Scaffold(
+          backgroundColor: Colors.transparent,
+          body: Padding(
+            padding: const EdgeInsets.only(
+                left: Constants.padding,
+                right: Constants.padding,
+                top: Constants.padding),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                WebNavigation(
+                  location: location,
+                ),
+                state is AuthenticatedUser
+                    ? Row(
+                        children: [
+                          Text(
+                            "Signed in.",
+                            style: TTheme.directoryText,
+                          ),
+                          const SizedBox(width: 10),
+                          InkWell(
+                              mouseCursor: SystemMouseCursors.none,
+                              onTap: () {
+                                context.read<HomeCubit>().signOut();
+                              },
+                              child: Text("Sign out",
+                                  style: TTheme.directoryTextSelected)),
+                          ScreenSize.isWebMobile
+                              ? const SizedBox(
+                                  width: Constants.smallPaddingMobile,
+                                )
+                              : const SizedBox(width: Constants.padding),
+                          SvgPicture.asset('svg/logo.svg',
+                              height: ScreenSize.isWebMobile
+                                  ? Constants.logoSizeMobile
+                                  : Constants.logoSize),
+                        ],
+                      )
+                    : SvgPicture.asset('svg/logo.svg',
+                        height: ScreenSize.isWebMobile
+                            ? Constants.logoSizeMobile
+                            : Constants.logoSize),
+              ],
+            ),
           ),
         );
       },
@@ -73,19 +78,6 @@ class WebNavigation extends StatelessWidget {
   Widget build(BuildContext context) {
     return NavigationDirectory(
       location: location,
-    );
-  }
-}
-
-class MobileNavigation extends StatelessWidget {
-  const MobileNavigation({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: NavigationDirectory(
-        location: GoRouter.of(context).state?.uri,
-      ),
     );
   }
 }

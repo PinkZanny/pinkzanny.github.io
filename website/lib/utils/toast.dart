@@ -9,7 +9,7 @@ class CustomToast {
         timeInSecForIosWeb: 2,
         msg: message,
         backgroundColor: Constants.successColor,
-        fontAsset: '/assets/fonts/HelveticaNeue.ttf',
+        fontAsset: 'HelveticaNeue.ttf',
         webBgColor:
             "linear-gradient(to right, ${Constants.successColor.toHex(leadingFF: false)}, ${Constants.successColor.toHex(leadingFF: false)})",
         webPosition: "center");
@@ -18,7 +18,7 @@ class CustomToast {
   static void errorToast(String message) {
     Fluttertoast.showToast(
         toastLength: Toast.LENGTH_LONG,
-        fontAsset: '/assets/fonts/HelveticaNeue.ttf',
+        fontAsset: 'HelveticaNeue.ttf',
         timeInSecForIosWeb: 2,
         msg: message,
         backgroundColor: Constants.failureColor,

@@ -17,7 +17,7 @@ class Constants {
   static const double displayText = 48;
   static const double verySmallDisplayText = 14;
   static const double smallDisplayText = 24;
-  static const double displayTextMobile = 36;
+  static const double displayTextMobile = 30;
   static const double smallDisplayTextMobile = 18;
   static const double verySmallDisplayTextMobile = 12;
 
@@ -36,9 +36,9 @@ class Constants {
   static const double largePaddingMobile = 24;
 
   static const double logoSize = 44;
-  static const double logoSizeMobile = 36;
+  static const double logoSizeMobile = 24;
   static const double buttonSize = 44;
-  static const double buttonSizeMobile = 36;
+  static const double buttonSizeMobile = 24;
 
   static const String cvUrlString =
       'https://drive.google.com/file/d/1pw7kg5BXQqbgB1x6YphFGlUJt0sHhv8f/view?usp=sharing';

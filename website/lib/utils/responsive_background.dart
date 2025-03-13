@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:website/presentation/widgets/topbar.dart';
 import 'package:website/utils/constants.dart';
 import 'package:website/utils/custom_cursor.dart';
 import 'package:website/utils/screen_size.dart';
@@ -53,7 +54,9 @@ class ResponsiveBackground extends StatelessWidget {
                 ],
               ),
             ),
-            CustomCursor(page: page),
+            ScreenSize.isWebMobile
+                ? Stack(children: [const TopBarWidget(), page])
+                : CustomCursor(page: page),
           ],
         ),
       ),

@@ -13,6 +13,19 @@ class HomeAuthenticated extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return ScreenSize.isWebMobile
+        ? MobileBody(name: name)
+        : WebBody(name: name);
+  }
+}
+
+class WebBody extends StatelessWidget {
+  const WebBody({required this.name, super.key});
+
+  final String name;
+
+  @override
+  Widget build(BuildContext context) {
     return Center(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -41,6 +54,43 @@ class HomeAuthenticated extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class MobileBody extends StatelessWidget {
+  const MobileBody({required this.name, super.key});
+
+  final String name;
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: Constants.smallPadding),
+        child: ListView(
+          shrinkWrap: true,
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Data Driven.\nTech Enthusiast.\nQuantitatively Inclined.",
+                  style: TTheme.displayText,
+                ),
+                const SizedBox(height: Constants.verySmallPadding),
+                Text(
+                  "Congratulations $name! \n\nYou gained full access to the website. This means you will be able to view all the information about me, download my CV and articles developed for my projects.",
+                  maxLines: 10,
+                  style: TTheme.subText,
+                  textAlign: TextAlign.left,
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

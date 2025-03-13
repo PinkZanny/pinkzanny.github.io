@@ -11,7 +11,7 @@ class Routes {
       GoRoute(
         path: '/',
         pageBuilder: (context, state) => CustomTransitionPage(
-          child: HomePage(),
+          child: const HomePage(),
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
             return FadeTransition(
               opacity:
@@ -24,7 +24,7 @@ class Routes {
       GoRoute(
         path: RoutePaths.projects,
         pageBuilder: (context, state) => CustomTransitionPage(
-          child: ProjectsPage(),
+          child: const ProjectsPage(),
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
             return FadeTransition(
               opacity:
@@ -37,7 +37,7 @@ class Routes {
       GoRoute(
         path: RoutePaths.about,
         pageBuilder: (context, state) => CustomTransitionPage(
-          child: AboutPage(),
+          child: const AboutPage(),
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
             return FadeTransition(
               opacity:
