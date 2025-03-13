@@ -6,7 +6,6 @@ import 'package:website/presentation/widgets/project_entry.dart';
 import 'package:website/utils/constants.dart';
 import 'package:website/utils/responsive_background.dart';
 import 'package:website/utils/screen_size.dart';
-import 'package:website/utils/scroll_physics_ext.dart';
 import 'package:website/utils/session_manager.dart';
 import 'package:website/utils/texttheme_manager.dart';
 import 'package:website/utils/toast.dart';
