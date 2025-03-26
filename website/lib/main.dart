@@ -102,6 +102,9 @@ class LinkedInWebViewHandler extends StatelessWidget {
               "If the button below doesn't work, please click on the three dots on the top right corner of the screen and select 'Open in Browser'.",
               style: TTheme.subText.copyWith(fontSize: 10),
             ),
+            const SizedBox(
+              height: Constants.smallPadding,
+            ),
             Material(
               color: Colors.transparent,
               borderOnForeground: false,
