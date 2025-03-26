@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
-import 'package:url_launcher/url_launcher.dart';
+// import 'package:url_launcher/url_launcher.dart';
 import 'package:website/presentation/cubits/home_cubit/home_cubit.dart';
 import 'package:website/presentation/cubits/project_cubit/project_cubit.dart';
 import 'package:website/utils/constants.dart';
@@ -63,19 +63,24 @@ class LinkedInWebViewHandler extends StatelessWidget {
   const LinkedInWebViewHandler({super.key});
 
   Future<void> _openInExternalBrowser(BuildContext context) async {
-    final Uri url = Uri.parse(html.window.location.href);
+    // final Uri url = Uri.parse(html.window.location.href);
+    final anchor = html.AnchorElement(href: html.window.location.href)
+      ..target = '_blank'
+      ..rel = 'noopener noreferrer';
+    anchor.click();
     html.window.open(html.window.location.href, '_blank');
-    if (await canLaunchUrl(url)) {
-      await launchUrl(url, mode: LaunchMode.externalApplication);
-    } else {
-      if (context.mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text("Could not open the link."),
-          ),
-        );
-      }
-    }
+    html.window.location.href = html.window.location.href;
+    // if (await canLaunchUrl(url)) {
+    //   await launchUrl(url, mode: LaunchMode.externalApplication);
+    // } else {
+    //   if (context.mounted) {
+    //     ScaffoldMessenger.of(context).showSnackBar(
+    //       const SnackBar(
+    //         content: Text("Could not open the link."),
+    //       ),
+    //     );
+    //   }
+    // }
   }
 
   @override
@@ -85,6 +90,7 @@ class LinkedInWebViewHandler extends StatelessWidget {
         backgroundColor: Constants.backgroundColor,
         body: Center(
             child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
                 "Unfortunately, LinkedIn WebView doesn't really like Flutter Web.",
@@ -115,7 +121,7 @@ class LinkedInWebViewHandler extends StatelessWidget {
                       child: Text(
                         "Open In External Browser",
                         style: TTheme.directoryTextSelected.copyWith(
-                          fontSize: 8,
+                          fontSize: 9,
                         ),
                       ),
                     ),
