@@ -64,12 +64,17 @@ class LinkedInWebViewHandler extends StatelessWidget {
 
   Future<void> _openInExternalBrowser(BuildContext context) async {
     final Uri url = Uri.parse(html.window.location.href);
+    html.window.open(html.window.location.href, '_blank');
     if (await canLaunchUrl(url)) {
       await launchUrl(url, mode: LaunchMode.externalApplication);
     } else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Could not open in external browser')),
-      );
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text("Could not open the link."),
+          ),
+        );
+      }
     }
   }
 
@@ -79,34 +84,46 @@ class LinkedInWebViewHandler extends StatelessWidget {
       home: Scaffold(
         backgroundColor: Constants.backgroundColor,
         body: Center(
-            child: Material(
-          color: Colors.transparent,
-          borderOnForeground: false,
-          child: InkWell(
-            splashColor: Colors.transparent,
-            splashFactory: NoSplash.splashFactory,
-            mouseCursor: SystemMouseCursors.none,
-            onTap: () {
-              _openInExternalBrowser(context);
-            },
-            child: Container(
-              height: 44,
-              width: 160,
-              decoration: BoxDecoration(
-                  color: Constants.accentColor,
-                  borderRadius: BorderRadius.circular(10)),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(
-                    horizontal: Constants.smallPadding),
-                child: Center(
-                  child: Text(
-                    "Open In External Browser",
-                    style: TTheme.directoryTextSelected,
+            child: Column(
+          children: [
+            Text(
+                "Unfortunately, LinkedIn WebView doesn't really like Flutter Web.",
+                style: TTheme.smallDisplayText.copyWith(fontSize: 11)),
+            const SizedBox(
+              height: Constants.smallPadding,
+            ),
+            Material(
+              color: Colors.transparent,
+              borderOnForeground: false,
+              child: InkWell(
+                splashColor: Colors.transparent,
+                splashFactory: NoSplash.splashFactory,
+                mouseCursor: SystemMouseCursors.none,
+                onTap: () {
+                  _openInExternalBrowser(context);
+                },
+                child: Container(
+                  height: 44,
+                  width: 160,
+                  decoration: BoxDecoration(
+                      color: Constants.accentColor,
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: Constants.smallPadding),
+                    child: Center(
+                      child: Text(
+                        "Open In External Browser",
+                        style: TTheme.directoryTextSelected.copyWith(
+                          fontSize: 8,
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               ),
             ),
-          ),
+          ],
         )),
       ),
     );
