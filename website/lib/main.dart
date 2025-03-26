@@ -98,9 +98,14 @@ class LinkedInWebViewHandler extends StatelessWidget {
             const SizedBox(
               height: Constants.smallPadding,
             ),
-            Text(
-              "If the button below doesn't work, please click on the three dots on the top right corner of the screen and select 'Open in Browser'.",
-              style: TTheme.subText.copyWith(fontSize: 10),
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                  horizontal: Constants.smallPadding),
+              child: Text(
+                "If the button below doesn't work, please click on the three dots on the top right corner of the screen and select 'Open in Browser'.",
+                style:
+                    TTheme.subText.copyWith(fontSize: 10, color: Colors.white),
+              ),
             ),
             const SizedBox(
               height: Constants.smallPadding,
