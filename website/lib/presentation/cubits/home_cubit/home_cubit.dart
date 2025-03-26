@@ -4,6 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:google_sign_in_web/google_sign_in_web.dart';
+import 'package:website/utils/constants.dart';
 import 'package:website/utils/session_manager.dart';
 import 'package:website/utils/ultra_logger.dart';
 import 'home_state.dart';
@@ -20,7 +21,7 @@ class HomeCubit extends Cubit<HomeState> {
   }
 
   Future<void> pluginInit() async {
-    await googleSignInPlugin.init();
+    await googleSignInPlugin.init(clientId: Constants.googleClientId);
 
     try {
       await googleSignIn.signInSilently();

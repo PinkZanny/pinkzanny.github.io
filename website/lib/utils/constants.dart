@@ -42,4 +42,7 @@ class Constants {
 
   static const String cvUrlString =
       'https://drive.google.com/file/d/1pw7kg5BXQqbgB1x6YphFGlUJt0sHhv8f/view?usp=sharing';
+
+  static const String googleClientId =
+      "643927739423-719e9m07f0040h14segaj79vakeudtrc.apps.googleusercontent.com";
 }
