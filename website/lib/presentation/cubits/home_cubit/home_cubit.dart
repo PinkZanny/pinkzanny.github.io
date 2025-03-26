@@ -14,6 +14,11 @@ class HomeCubit extends Cubit<HomeState> {
   final GoogleSignInPlugin googleSignInPlugin = GoogleSignInPlugin();
   final GoogleSignIn googleSignIn = GoogleSignIn(scopes: ["email", "profile"]);
 
+  Future<void> initPlugin() async {
+    await pluginInit();
+    await attachListener();
+  }
+
   Future<void> pluginInit() async {
     await googleSignInPlugin.init();
 

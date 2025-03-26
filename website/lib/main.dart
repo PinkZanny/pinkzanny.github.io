@@ -23,9 +23,11 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => HomeCubit()
-            ..pluginInit()
-            ..attachListener(),
+          create: (context) {
+            final HomeCubit cubit = HomeCubit();
+            cubit.initPlugin();
+            return cubit;
+          },
         ),
         BlocProvider(
           create: (context) => ProjectCubit()..getProjects(),
